@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RailsTableEditor</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class='navbar navbar-default'>
+  <div class='navbar-header'>
+    <%= link_to "Customers", root_path, class: 'navbar-brand' %>
+  </div>
+</nav>
+<div class='container'>
+  <% if flash[:success] %>
+    <div class='row'>
+      <div class='alert alert-success'>
+        <%= flash[:success] %>
+      </div>
+    </div>
+  <% end %>
+  <%= yield %>
+</div>
+
+</body>
+</html>
