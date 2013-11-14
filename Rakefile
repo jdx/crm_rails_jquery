@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-RailsTableEditor::Application.load_tasks
+CrmRails::Application.load_tasks

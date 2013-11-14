@@ -1,4 +1,4 @@
-RailsTableEditor::Application.routes.draw do
+CrmRails::Application.routes.draw do
   namespace :api do
     resources :customers
   end
