@@ -42,3 +42,4 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'bootstrap-sass'
+gem 'active_model_serializers'

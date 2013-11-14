@@ -1,6 +1,4 @@
 class CustomersController < ApplicationController
-  before_action :set_customer, only: [:edit, :update, :destroy]
-
   def index
     @customer = Customer.new
     @customers = Customer.all
@@ -11,6 +9,7 @@ class CustomersController < ApplicationController
   end
 
   def edit
+    @customer = Customer.find(params[:id])
   end
 
   def create
@@ -25,6 +24,7 @@ class CustomersController < ApplicationController
   end
 
   def update
+    @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
       flash[:success] = "#{@customer.name} was successfully created."
       redirect_to customers_path
@@ -34,17 +34,12 @@ class CustomersController < ApplicationController
   end
 
   def destroy
-    @customer.destroy
-    respond_to do |format|
-      format.html { redirect_to customers_url }
-    end
+    customer = Customer.find(params[:id])
+    customer.destroy
+    redirect_to customers_url
   end
 
   private
-  def set_customer
-    @customer = Customer.find(params[:id])
-  end
-
   def customer_params
     params.require(:customer).permit(:name, :phone)
   end
