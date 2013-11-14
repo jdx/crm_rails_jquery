@@ -1,5 +1,5 @@
 <td><%= customer.name %></td>
 <td><%= customer.phone %></td>
 <td>
-  <%= link_to 'Edit', edit_customer_path(customer), class: 'edit-button btn btn-default' %>
+  <%= link_to 'Edit', edit_customer_path(customer), remote: true, class: 'btn btn-default' %>
 </td>

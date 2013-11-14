@@ -11,7 +11,7 @@
 
       <tbody>
         <% @customers.each do |customer| %>
-          <tr>
+          <tr id="user-<%= customer.id %>">
             <%= render partial: 'index_row', locals: { customer: customer } %>
           </tr>
         <% end %>

@@ -24,12 +24,18 @@ class CustomersController < ApplicationController
   end
 
   def update
-    @customer = Customer.find(params[:id])
-    if @customer.update(customer_params)
-      flash[:success] = "#{@customer.name} was successfully created."
-      redirect_to customers_path
-    else
-      render action: 'edit'
+    respond_to do |format|
+      @customer = Customer.find(params[:id])
+      if @customer.update(customer_params)
+        format.html do
+          flash[:success] = "#{@customer.name} was successfully created."
+          redirect_to customers_path
+        end
+        format.js
+      else
+        format.html { render action: 'edit' }
+        format.js
+      end
     end
   end
 
