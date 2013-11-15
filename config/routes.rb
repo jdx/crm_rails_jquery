@@ -1,6 +1,8 @@
 CrmRails::Application.routes.draw do
   namespace :api do
-    resources :customers
+    namespace :v1 do
+      resources :customers
+    end
   end
 
   resources :customers

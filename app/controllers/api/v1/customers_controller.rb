@@ -1,7 +1,12 @@
-class Api::CustomersController < ApplicationController
+class Api::V1::CustomersController < ApplicationController
   def index
     customers = Customer.all
     render json: customers
+  end
+
+  def create
+    customer = Customer.create!(customer_attributes)
+    render json: customer
   end
 
   def update
