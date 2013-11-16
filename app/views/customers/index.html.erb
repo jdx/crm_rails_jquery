@@ -12,11 +12,7 @@
       <tbody>
         <% @customers.each do |customer| %>
           <tr>
-            <td><%= customer.name %></td>
-            <td><%= customer.phone %></td>
-            <td>
-              <%= link_to 'Edit', edit_customer_path(customer), class: 'edit-button btn btn-default' %>
-            </td>
+            <%= render partial: 'index_row', locals: { customer: customer } %>
           </tr>
         <% end %>
       </tbody>
