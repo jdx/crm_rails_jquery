@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
   def index
     @customer = Customer.new
-    @customers = Customer.all
+    @customers = Customer.order('name')
   end
 
   def new
